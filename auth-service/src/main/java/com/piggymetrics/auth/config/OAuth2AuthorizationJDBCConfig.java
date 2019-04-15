@@ -4,6 +4,7 @@ import com.piggymetrics.auth.service.security.MongoUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
@@ -20,6 +21,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
  */
 @Configuration
 @EnableAuthorizationServer
+@Profile("jdbc")
 public class OAuth2AuthorizationJDBCConfig extends AuthorizationServerConfigurerAdapter {
 
     private final String NOOP_PASSWORD_ENCODE = "{noop}";
